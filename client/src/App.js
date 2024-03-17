@@ -35,8 +35,7 @@ import EquipmentListing from "./pages/user/EquipmentListing"
 import PostRequirement from "./pages/user/PostRequirement"
 import ColdStorage from './pages/admin/ColdStorage';
 import ColdStorageView from './pages/user/ColdStorageView';
-
-
+import NegHistoy from './pages/user/NegHistory'
 
 
 
@@ -51,33 +50,30 @@ function App() {
         <Routes>
           <Route path='/' element={<Homepage />} />
 
-          <Route path='/' element={<PrivateRoute />}>
-          <Route path='user/profile' element={<Profile />} />
-          </Route>
+          
 
+          //private routes
 
 
           <Route path='/dashboard' element={<PrivateRoute />}>
             <Route path='user' element={<Dashboard />} />
-            <Route path='user/proposals-recieved' element={<ProposalsRecieved/>}/>
-            <Route path='user/proposals-sent' element={<ProposalsSent/>}/>
+            <Route path='user/proposals-recieved' element={<ProposalsRecieved />} />
+
             <Route path='user/orders' element={<Orders />} />
             <Route path='user/listings-posted' element={<Listings />} />
             <Route path='user/profile' element={<Profile />} />
             <Route path='user/product/:pid' element={<UpdateProduct />} />
             <Route path='user/sell-commodity' element={<SellCommodity />} />
-
-
             <Route path='user/buy-commodity' element={<BuyCommodity />} />
 
+            <Route path='user/history/negotiations' element={<NegHistoy />} />
 
-            <Route path='user/responses/:pid' element={<Responses/>} />
-          
-            <Route path='user/post-potential' element={<PostRequirement/>} />
-            
-            <Route path='user/post-equipment' element={<Equipment/>} />
-            <Route path='user/hire-equipment' element={<HireEquipment/>}/>
-            <Route path='user/my-equipment-listing' element={<EquipmentListing/>}/>
+            <Route path='user/responses/:pid' element={<Responses />} />
+            <Route path='user/post-potential' element={<PostRequirement />} />
+
+            <Route path='user/post-equipment' element={<Equipment />} />
+            <Route path='user/hire-equipment' element={<HireEquipment />} />
+            <Route path='user/my-equipment-listing' element={<EquipmentListing />} />
             <Route path='user/get-all-coldstorage' element={<ColdStorageView/>} />
           </Route>
 
@@ -88,7 +84,7 @@ function App() {
             <Route path='admin/product/:pid' element={<UpdateProduct />} />
             <Route path='admin/users' element={<Users />} />
             <Route path='admin/products' element={<Products />} />
-            <Route path='user/create-equipment-category' element={<EquipmentCategory/>} />
+            <Route path='user/create-equipment-category' element={<EquipmentCategory />} />
             <Route path='admin/add-coldstorage' element={<ColdStorage/>} />
           </Route>
 
@@ -99,8 +95,10 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/*' element={<Pagenotfound />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/*' element={<Pagenotfound />} />
+
+          <Route path='/buy-commodity' element={<BuyCommodity />} />
         </Routes>
 
       </AuthState>
